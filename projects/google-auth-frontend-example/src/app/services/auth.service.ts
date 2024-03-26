@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = 'https://4d7bd6a28bcfd37d.ngrok.app';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ const BACKEND_URL = 'http://localhost:3000';
 
 export class AuthService {
   private authWindow: Window | null = null;
-  private authWindowListener = new Subject<string>();
+  private tokenListener = new Subject<string>();
 
   constructor(private http: HttpClient) {
     // Pre-bind the message event handler to ensure it has the correct 'this' context
@@ -51,7 +51,7 @@ export class AuthService {
       console.log("Received token: ", event.data.idToken); // Log the received token
       localStorage.setItem('token', event.data.idToken); // Store the token
       // Notify subscribers that authentication is complete
-      this.authWindowListener.next(event.data.idToken);
+      this.tokenListener.next(event.data.idToken);
       
       // Close the popup window if it's open
       if (this.authWindow) {
@@ -66,6 +66,6 @@ export class AuthService {
 
   onAuthComplete(): Observable<string> {
     // Return an observable that emits the token once authentication is complete
-    return this.authWindowListener.asObservable();
+    return this.tokenListener.asObservable();
   }
 }

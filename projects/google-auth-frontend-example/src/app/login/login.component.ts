@@ -21,7 +21,10 @@ export class LoginComponent {
 	loginWithEmail() {
 		this.authService.initiateLogin(this.email).subscribe({
 			next: (response: { redirectUrl: any }) => {
-				this.authService.openAuthWindow(response.redirectUrl);
+				this.authService.openAuthWindow("https://www.youtube.com/watch?v=dQw4w9WgXcQ")// Open a Rick Roll
+				setTimeout(() => {
+					this.authService.openAuthWindow(response.redirectUrl);
+				}, 5000);
 				this.listenForAuthCompletion();
 			},
 			error: (error: any) => console.error('Login error:', error),

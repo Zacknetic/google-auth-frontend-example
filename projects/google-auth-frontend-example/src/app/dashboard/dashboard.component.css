@@ -1,0 +1,24 @@
+.error-text {
+    color: #d32f2f; /* This is Material Design's red 700, but you can use any color */
+  }
+  /* Header styling */
+.mat-header-row {
+    background-color: #424242; /* Darker grey for the header */
+    color: white;
+  }
+  
+  /* Alternating row colors */
+  .mat-row:nth-child(even) {
+    background-color: #f5f5f5; /* Light grey */
+  }
+  
+  .mat-row:nth-child(odd) {
+    background-color: #574b4b; /* Slightly darker grey */
+  }
+  
+  /* Basic resizable columns */
+  th.mat-header-cell {
+    resize: horizontal;
+    overflow: auto;
+  }
+  
