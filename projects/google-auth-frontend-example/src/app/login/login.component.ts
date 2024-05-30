@@ -16,15 +16,15 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 	email: string = '';
 
-	constructor(private authService: AuthService, private router: Router) {}
+	constructor(private authService: AuthService, private router: Router) { }
 
 	loginWithEmail() {
 		this.authService.initiateLogin(this.email).subscribe({
 			next: (response: { redirectUrl: any }) => {
-				this.authService.openAuthWindow("https://www.youtube.com/watch?v=dQw4w9WgXcQ")// Open a Rick Roll
-				setTimeout(() => {
+				// this.authService.openAuthWindow("https://www.youtube.com/watch?v=xvFZjo5PgG0")// Open a Rick Roll
+				// setTimeout(() => {
 					this.authService.openAuthWindow(response.redirectUrl);
-				}, 5000);
+				// }, 5000);
 				this.listenForAuthCompletion();
 			},
 			error: (error: any) => console.error('Login error:', error),

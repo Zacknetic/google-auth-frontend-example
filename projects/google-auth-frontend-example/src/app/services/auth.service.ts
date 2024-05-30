@@ -55,7 +55,7 @@ export class AuthService {
       
       // Close the popup window if it's open
       if (this.authWindow) {
-        this.authWindow.close();
+        // this.authWindow.close();
         this.authWindow = null; // Reset the reference
       }
 

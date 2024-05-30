@@ -1,0 +1,29 @@
+<div class="list-container">
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="movies" [cdkDropListConnectedTo]="doneList" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let movie of movies">
+      <div cdkDrag class="accordion-item">
+        <div class="title-bar" (mousedown)="isDragging = false" (mouseup)="toggleAccordion($event, movie)">
+          <h4>{{ movie.title }}</h4>
+          <div class="pin-button" (click)="pinItem($event, movie)" [style.background]="movie.isPinned ? 'green' : 'red'"></div>
+        </div>
+        <div class="example-box" *ngIf="movie.expanded || movie.isPinned">
+          <p>Description: {{ movie.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repeat for doneList -->
+  <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneMovies" [cdkDropListConnectedTo]="todoList" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let movie of doneMovies">
+      <div cdkDrag class="accordion-item">
+        <div class="title-bar" (mousedown)="isDragging = false" (mouseup)="toggleAccordion($event, movie)">
+          <h4>{{ movie.title }}</h4>
+          <div class="pin-button" (click)="pinItem($event, movie)" [style.background]="movie.isPinned ? 'green' : 'red'"></div>
+        </div>
+        <div class="example-box" *ngIf="movie.expanded || movie.isPinned">
+          <p>Description: {{ movie.description }}</p>
+        </div>
+      </div>
+    </div>
+</div>

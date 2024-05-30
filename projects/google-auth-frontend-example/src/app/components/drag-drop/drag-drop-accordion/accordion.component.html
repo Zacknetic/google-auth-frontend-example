@@ -1,0 +1,27 @@
+<div class="accordion-item" cdkDrag>
+	<div #titleBar class="title-bar" cdkDragHandle>
+		<div class="centered-title">{{ item.title }}</div>
+		<div
+			#pinButton
+			class="pin-button"
+			(click)="pinItem($event)"
+			[style.background]="item.isPinned ? 'green' : 'red'"
+		></div>
+	</div>
+	<div class="accordion-content" *ngIf="item.expanded || item.isPinned">
+		<p>Description: {{ item.description }}</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+		<p>Example Text</p>
+	</div>
+</div>

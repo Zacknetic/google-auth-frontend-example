@@ -1,0 +1,15 @@
+<div
+	cdkDropList
+	[cdkDropListData]="items"
+	[cdkDropListConnectedTo]="connectedLists"
+	class="drag-drop-list"
+	(cdkDropListDropped)="drop($event)"
+	id="{{ listId }}"
+>
+	<div *ngFor="let movie of items">
+		<div class="drag-item">
+			<!-- <div class="custom-placeholder" *cdkDragPlaceholder></div> -->
+			<app-accordion [item]="movie"></app-accordion>
+		</div>
+	</div>
+</div>
