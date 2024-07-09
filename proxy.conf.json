@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target": "https://localhost:4200",
+        "secure": false,
+        "changeOrigin": true,
+        "ssl": {
+            "key": "./ssl.key",
+            "cert": "./ssl.crt"
+        }
+    }
+}
