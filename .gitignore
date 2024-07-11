@@ -43,3 +43,5 @@ Thumbs.db
 *.crt
 *.csr
 *.key
+package-lock.json
+package-lock.json
