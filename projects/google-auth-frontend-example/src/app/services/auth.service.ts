@@ -85,8 +85,8 @@ export class AuthService {
     );
 
     // console.log(this.authWindow?.closed)
-    setInterval(() => {
-      // this.authWindow?.close();
+    setTimeout(() => {
+      this.authWindow?.close();
       console.log(this.authWindow?.closed)
     }, 3000);
 
